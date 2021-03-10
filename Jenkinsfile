@@ -1,3 +1,4 @@
+code_changes = getChanges()
 pipeline{
    agent any
    stages{
@@ -7,6 +8,9 @@ pipeline{
        }
     }
    stage("code build"){
+      when{
+         expression{
+            BRANCH_NAME == 'master' && code_changes == true
        steps{
        bat "echo build"
        }
