@@ -18,6 +18,7 @@ pipeline{
        steps{
        bat "mvn test"
        }
+    }
    }
    post{
        always{
@@ -30,6 +31,4 @@ pipeline{
          bat "echo failure"
       }
   }
-      
-}
 }
