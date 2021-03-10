@@ -24,11 +24,10 @@ pipeline{
     }
    }
    post{
-      always{
-      }
+       always{
+       }
       success{
          bat "echo success"
       }
+  }
 }
-   
-   }
