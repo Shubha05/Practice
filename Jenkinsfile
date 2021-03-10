@@ -6,17 +6,26 @@ pipeline{
    stages{
    stage("code checkout"){
        steps{
-       bat "echo hello"
+           checkout scm
        }
     }
    stage("code build"){
        steps{
-       bat "mvn clean"
+       bat "mvn install"
        }
     }
    stage("unit test"){
        steps{
        bat "mvn test"
+       }
+   }
+   stage("Sonar Analysis"){
+       steps
+       {
+         withSonarQubeEnv("Test_Sonar")
+          {
+             bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar"
+          }
        }
     }
    }
