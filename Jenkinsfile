@@ -1,6 +1,9 @@
 code_changes = getChanges()
 pipeline{
    agent any
+   tools{
+      maven 'Maven'
+   }
    stages{
    stage("code checkout"){
        steps{
@@ -12,12 +15,12 @@ pipeline{
          expression{
             BRANCH_NAME == 'master' && code_changes == true
        steps{
-       bat "echo build"
+       bat "mvn clean"
        }
     }
    stage("unit test"){
        steps{
-       bat "echo unit test"
+       bat "mvn test"
        }
     }
    }
