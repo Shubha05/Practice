@@ -13,6 +13,8 @@ pipeline{
       when{
          expression{
             BRANCH_NAME == 'master' 
+         }
+      }
        steps{
        bat "mvn clean"
        }
@@ -21,13 +23,15 @@ pipeline{
        steps{
        bat "mvn test"
        }
-    }
    }
    post{
        always{
        }
       success{
          bat "echo success"
+      }
+      failure{
+         bat "echo failure"
       }
   }
 }
