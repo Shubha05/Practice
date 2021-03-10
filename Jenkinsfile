@@ -17,4 +17,10 @@ pipeline{
        }
     }
    }
+   post{
+      always{
+      }
+      success{
+         bat "echo success"
+      }
 }
