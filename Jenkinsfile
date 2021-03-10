@@ -1,4 +1,3 @@
-code_changes = getChanges()
 pipeline{
    agent any
    tools{
@@ -13,7 +12,7 @@ pipeline{
    stage("code build"){
       when{
          expression{
-            BRANCH_NAME == 'master' && code_changes == true
+            BRANCH_NAME == 'master' 
        steps{
        bat "mvn clean"
        }
@@ -31,3 +30,4 @@ pipeline{
          bat "echo success"
       }
 }
+   
