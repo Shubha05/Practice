@@ -10,11 +10,6 @@ pipeline{
        }
     }
    stage("code build"){
-      when{
-         expression{
-            BRANCH_NAME == 'master' 
-         }
-      }
        steps{
        bat "mvn clean"
        }
@@ -26,6 +21,7 @@ pipeline{
    }
    post{
        always{
+           bat "echo always"
        }
       success{
          bat "echo success"
