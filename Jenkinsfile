@@ -27,11 +27,11 @@ pipeline{
              bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar"
           }
        }
-    }
-   
+    }   
    stage("Upload to Artifactory"){
        steps{
           rtMavenDeployer{
+             id : 'deployer',
              serverId :'Artifactory',
              releaseRepo : 'Shubha.Agrawal05',
              snapshotRepo : 'Shubha.Agrawal05'              
