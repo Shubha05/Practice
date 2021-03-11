@@ -30,19 +30,19 @@ pipeline{
     }   
    stage("Upload to Artifactory"){
        steps{
-          rtMavenDeployer{
-             id : 'deployer',
-             serverId :'Artifactory',
-             releaseRepo : 'Shubha.Agrawal05',
-             snapshotRepo : 'Shubha.Agrawal05'              
+            rtMavenDeployer {
+             id: 'deployer',
+             serverId:'Artifactory',
+             releaseRepo: 'Shubha.Agrawal05',
+             snapshotRepo: 'Shubha.Agrawal05'              
        }
-          rtMavenRUn{
-             pom : 'pom.xml',
-             goals : 'clean install',
-             deployedId : 'deployer'              
+          rtMavenRun {
+             pom: 'pom.xml',
+             goals: 'clean install',
+             deployedId: 'deployer',              
           }
           rtPublishBuildInfo{
-             serverId : 'Artifactory'
+             serverId: 'Artifactory',
           }
        }
    }
