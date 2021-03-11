@@ -28,7 +28,7 @@ pipeline{
           }
        }
     }
-   }
+   
    stage("Upload to Artifactory"){
        steps{
           rtMavenDeployer{
@@ -46,6 +46,7 @@ pipeline{
              serverId : 'Artifactory'
           }
        }
+   }
    }
    post{
        always{
