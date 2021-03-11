@@ -22,7 +22,7 @@ pipeline{
    stage("Sonar Analysis"){
        steps
        {
-         withSonarQubeEnv(credentialsId: 'f9b2219a-47ce-48bd-aa7c-568e5d7935e6')
+         withSonarQubeEnv("Test_Sonar")
           {
              bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar"
           }
