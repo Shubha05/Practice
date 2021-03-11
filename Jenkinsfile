@@ -32,7 +32,6 @@ pipeline{
    stage("Upload to Artifactory"){
        steps{
           rtMavenDeployer{
-             id :'deployer',
              serverId :'Artifactory',
              releaseRepo : 'Shubha.Agrawal05',
              snapshotRepo : 'Shubha.Agrawal05'              
