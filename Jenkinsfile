@@ -39,7 +39,7 @@ pipeline{
           rtMavenRun (
              pom: 'pom.xml',
              goals: 'clean install',
-             deployedId: 'deployer',              
+             deployerId: 'deployer',              
           )
           rtPublishBuildInfo (
              serverId: 'Artifactory',
