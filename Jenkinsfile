@@ -24,7 +24,7 @@ pipeline{
        {
          withSonarQubeEnv("Test_Sonar")
           {
-             bat "mvn clean package sonar:sonar"
+             bat "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar"
           }
        }
     }
